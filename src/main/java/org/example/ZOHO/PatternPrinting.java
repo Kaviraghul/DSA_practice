@@ -3,7 +3,10 @@ package org.example.ZOHO;
 public class PatternPrinting {
 
     // pattern no : 1
-    public static void PatternPrinting_1(int B) {
+    public  void PatternPrinting_1(int B) {
+
+        System.out.println("PatternPrinting_1");
+
         int rowLength = 0;
         for (int i = 1; i <= B; i++) {
             rowLength++;
@@ -15,6 +18,32 @@ public class PatternPrinting {
                 j++;
                 increment--;
             }
+            System.out.println();
+        }
+    }
+
+    // pattern no : 2  (17 min )
+    public   void DiamondPattern(int B){
+
+        System.out.println("Diamond pattern");
+
+        int starCount = 0;
+
+        for(int i = 0; i < 2*B; i++){
+
+            if(i < B)starCount++;
+            if(i > B)starCount--;
+
+            // spacing
+            for(int j = 0; j < B - starCount; j++){
+                System.out.print(" ");
+            }
+
+            // star with space
+            for(int j = 0; j < starCount; j++){
+                System.out.print("* ");
+            }
+
             System.out.println();
         }
     }
@@ -33,8 +62,15 @@ public class PatternPrinting {
 *    4 8 11 13
 *    5 9 12 14 15
 *
-* 2. pattern no : 2
-*
+* 2. pattern no : 2 ( diamond pattern )
+*        *
+*       * *
+*      * * *
+*     * * * *
+*     * * * *
+*      * * *
+*       * *
+*        *
 *
 * 3. pattern no : 3
 *
