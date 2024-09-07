@@ -10,8 +10,11 @@ public class Main {
         //
          ZOHO_QUESTIONS zohoQuestions = new ZOHO_QUESTIONS();
 
-         zohoQuestions.getPatternPrinting().PatternPrinting_1(5);
-         zohoQuestions.getPatternPrinting().DiamondPattern(5);
+//         zohoQuestions.getPatternPrinting().PatternPrinting_1(5);
+//         zohoQuestions.getPatternPrinting().DiamondPattern(5);
+
+
+         zohoQuestions.getOneDimensionArray().DistinctDigitArray(new int[]{12, 123, 54});
 
     }
 }
