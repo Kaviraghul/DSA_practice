@@ -1,6 +1,5 @@
 package org.example;
 
-import org.example.ZOHO.PatternPrinting;
 import org.example.ZOHO.ZOHO_QUESTIONS;
 
 public class Main {

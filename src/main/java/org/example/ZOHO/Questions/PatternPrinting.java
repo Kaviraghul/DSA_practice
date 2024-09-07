@@ -1,4 +1,4 @@
-package org.example.ZOHO;
+package org.example.ZOHO.Questions;
 
 public class PatternPrinting {
 
