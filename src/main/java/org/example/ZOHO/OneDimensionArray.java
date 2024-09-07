@@ -43,4 +43,42 @@ public class OneDimensionArray {
         System.out.println(Arrays.toString(ans));
 
     }
+
+    public void CustomSorting_1 (int[] A){
+        Arrays.sort(A);
+
+        int lastOddIntIndex = -1;
+
+        for(int i = 0, j = 0; j < A.length; ){
+            if(A[i] == A[j] && A[i] % 2 == 1){
+              i++;j++;
+              lastOddIntIndex++;
+            }else if (A[i] % 2 == 1 && i < j){
+                i++;
+                lastOddIntIndex++;
+            }else if(A[i] % 2 == 0 && A[j] % 2 == 1 && i < j){
+                int temp = A[i];
+                A[i] = A[j];
+                A[j] = temp;
+                i++;j++;
+                lastOddIntIndex++;
+            }else{
+                j++;
+            }
+        }
+
+
+        for(int i = 0, j = lastOddIntIndex; j >= lastOddIntIndex/2; ){
+            int temp = A[j];
+            A[j] = A[i];
+            A[i] = temp;
+            j--; i++;
+        }
+
+        System.out.println(Arrays.toString(A));
+
+    }
+
+
+
 }
