@@ -1,6 +1,7 @@
 package org.example.ZOHO.Questions;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class OneDimensionArray {
 
@@ -85,10 +86,8 @@ public class OneDimensionArray {
     public void MinimumCurrencyNumber(int amount) {
         int[] currencies = new int[]{2000, 500, 200, 100, 50, 20, 10, 5,};
 
-
         int amountRef = amount;
         int currencyIndex = 0;
-
 
 //        // greedy approach
 //        Map<Integer, Integer> ans = new TreeMap<>((a, b) -> b - a);
@@ -104,7 +103,6 @@ public class OneDimensionArray {
 //            }
 //        }
 
-
         // normal approach
         HashMap<Integer, Integer> ans = new HashMap<Integer, Integer>();
         while (amountRef != 0) {
@@ -119,11 +117,12 @@ public class OneDimensionArray {
                 }
                 amountRef = amountRef % currentCurrency;
             }
-
         }
-            System.out.println("Currency  Count");
-            ans.forEach((key, value) -> System.out.println(key + " " + value));
+        System.out.println("Currency  Count");
+        ans.forEach((key, value) -> System.out.println(key + " " + value));
     }
+
+    // Program to Convert Hexadecimal Number to Binary
 
     public void  HexaBinaryConversion(String hexaValue){
         HashMap<Character, Integer> hexaNumbers = new HashMap<Character, Integer>();
@@ -144,11 +143,13 @@ public class OneDimensionArray {
         hexaNumbers.put('E', 14);
         hexaNumbers.put('F', 15);
 
-        String ans = "";
+        StringBuilder ans = new StringBuilder();
 
         for(char value : hexaValue.toCharArray()){
+
             int decimalValue = hexaNumbers.get(value);
             String binaryValue = "";
+
             if(value == '0'){
                 binaryValue = "0";
             } else if (value == '1') {
@@ -167,11 +168,72 @@ public class OneDimensionArray {
                 }
             }
 
-            ans = ans + binaryValue;
+            ans.append(binaryValue);
         }
 
         System.out.println(ans);
 
+    }
+
+    // Sort elements by frequency
+
+    public void DescendingFrequencySorting(int[] A) {
+        // Step 1: Count the frequency of each element
+        HashMap<Integer, Integer> frequencyMap = new HashMap<>();
+        for (int temp : A) {
+            frequencyMap.put(temp, frequencyMap.getOrDefault(temp, 0) + 1);
+        }
+
+        // Step 2: Group elements by their frequency
+        HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
+        int maxFrequency = 0;
+
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            int element = entry.getKey();
+            int frequency = entry.getValue();
+
+            if (!map.containsKey(frequency)) {
+                map.put(frequency, new ArrayList<>());
+            }
+            map.get(frequency).add(element);
+            maxFrequency = Math.max(maxFrequency, frequency);  // Track the maximum frequency
+        }
+
+        // Step 3: Build the result array based on frequency
+        int[] ans = new int[A.length];
+        int index = 0;
+        while (maxFrequency > 0) {
+            if (map.containsKey(maxFrequency)) {
+                for (int value : map.get(maxFrequency)) {
+                    for (int i = 0; i < maxFrequency; i++) {
+                        ans[index++] = value;
+                    }
+                }
+            }
+            maxFrequency--;
+        }
+
+        System.out.println(Arrays.toString(ans));
+    }
+
+    // Program to print prime numbers from 1 to N.
+
+    public void PrimeNumbersBtwRange(int N){
+        ArrayList<Integer> ans = new ArrayList<Integer>();
+
+        if(N == 0 || N == 1)System.out.println("0");
+
+        for (int i = 2; i < N; i++){
+            boolean prime = true;
+            for (int j = 2; j * j <= i; j++){
+                if(i % j == 0) {
+                    prime = false;
+                    break;
+                }
+            }
+            if(prime)ans.add(i);
+        }
+        System.out.println(ans);
     }
 
 }
