@@ -236,6 +236,88 @@ public class OneDimensionArray {
         System.out.println(ans);
     }
 
+    // find the missing element
+    public void MissingElement(int[] A){
+        if(A.length == 0 ){
+            System.out.println(0);
+        }else{
+            int missingElement = -1;
+
+            for (int i = 0; i < A.length; i++){
+                if(i+1 != A[i]){
+                    missingElement = A[i] - 1 ;
+                    break;
+                }
+            }
+
+            if(missingElement == -1)missingElement = A.length + 1;
+
+            System.out.println("Missing element : " + missingElement);
+        }
+    }
+
+    // Single singleNonDuplicate
+
+    public void SingleNonDuplicate(int[] A){
+        int ans = 0;
+        for (int j : A) {
+            ans ^= j;
+        }
+        System.out.println(ans);
+    }
+
+    // Single Number II
+
+    public void SingleNumber(int[] nums) {
+        int ans = -1;
+        Arrays.sort(nums);
+        for(int i = 0, j = i+2; j < nums.length; i+=3, j+=3){
+            if(nums[i] != nums[i+1] || nums[i+1] != nums[i+2]){
+                ans = nums[i] ^ nums[i+1] ^ nums[i+2];
+                break;
+            }
+        }
+
+        if(ans == -1) ans = nums[nums.length - 1];
+
+        System.out.println(ans);
+    }
+
+    // Move all zeroes to end of array
+
+    public void MoveZeroToRight(int[] A){
+        for(int i = 0, j = A.length -1; i < j; ){
+            if(A[i] != 0)i++;
+            if(A[j] == 0)j--;
+            if(A[i] == 0 && A[j] != 0){
+                int temp = A[i];
+                A[i] = A[j];
+                A[j] = temp;
+            }
+        }
+        System.out.println(Arrays.toString(A));
+    }
+
+    // Index of an Extra Element
+    public void ExtraElementIndex(int[] A, int[] B){
+        int ans = -1;
+        for(int i = 0, j = 0; i < A.length && j < B.length; i++, j++){
+            if(A[i] != B[j]){
+                if(A.length > B.length){
+                    ans = i;
+                }else{
+                    ans = j;
+                }
+                break;
+            }
+        }
+
+        if(ans == -1) ans = Math.max(A.length, B.length) - 1;
+
+        System.out.println(ans);
+    }
+
+
 }
 
 
