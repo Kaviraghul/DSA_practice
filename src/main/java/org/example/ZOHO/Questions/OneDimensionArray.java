@@ -317,6 +317,27 @@ public class OneDimensionArray {
         System.out.println(ans);
     }
 
+    // Special array reversal
+    public void SpecialArrayReversal(String B){
+
+        int i = 0, j = B.length()-1;
+
+        char[] A = B.toCharArray();
+
+        while ( i < j ){
+            if(!Character.isAlphabetic(A[i])){
+                i++;
+            }else if(!Character.isAlphabetic(A[j])){
+                j--;
+            }else{
+                char temp = A[i];
+                A[i] = A[j];
+                A[j] = temp;
+                i++; j--;
+            }
+        }
+        System.out.println(A);
+    }
 
 }
 
