@@ -27,6 +27,8 @@ public class Main {
 //            zohoQuestions.getOneDimensionArray().SingleNumber(new int[]{0,1,0,1,0,1,99});
 //            zohoQuestions.getOneDimensionArray().MoveZeroToRight(new int[]{0, 0, 0, 4});
 //            zohoQuestions.getOneDimensionArray().ExtraElementIndex(new int[]{2,4,6,8,9,10,12}, new int[]{2,4,6,8,10,12});
+//              zohoQuestions.getOneDimensionArray().SpecialArrayReversal("A&x#");
+//              zohoQuestions.getOneDimensionArray().Palindrome(123);
 
           // Maths
 //            zohoQuestions.getMaths().PrimeNumbBtwRange(10, 20);

@@ -339,6 +339,23 @@ public class OneDimensionArray {
         System.out.println(A);
     }
 
+    // Palindrome
+    public void Palindrome(int A){
+        String B = Integer.toString(A);
+        int i = 0, j = B.length() - 1;
+        boolean ans = true;
+
+        while (i < j){
+            if(B.charAt(i) != B.charAt(j)){
+                ans = false;
+                break;
+            }
+            i++; j--;
+        }
+
+        System.out.println(ans);
+    }
+
 }
 
 
